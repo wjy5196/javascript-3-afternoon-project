@@ -39,8 +39,12 @@
   Inside the function showValues, write a for in loop that concatenates each of the property values and returns the concatenated string.
 */
 
-function showValues( obj ) {
-  //Code Here
+function showValues(object) {
+  let array = [];
+  for (var key in object) {
+    array.push(object[key]);
+  }
+  return array.join("");
 }
 
 
@@ -56,6 +60,13 @@ function showValues( obj ) {
 //Code Here
 
 
+function greaterThan10(object) {
+  for (var value in object) {
+    if (object[value] > 10) {
+      object[value] = 0;
+    }
+  }
+  return object;}
 
 ////////// PROBLEM 3 //////////
 
@@ -66,7 +77,11 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function double(object) {
+  for (var value in object) {
+    object[value] *= 2;
+  }
+  return object;}
 
 
 ////////// PROBLEM 4 //////////
@@ -81,7 +96,15 @@ function showValues( obj ) {
 
 //Code Here
 
-
+function secrets(object) {
+  let string = "";
+  for (var value in object) {
+    if (value.startsWith("sh")) {
+      string += object[value];
+    }
+  }
+  return string;
+}
 
 /* 
   Sometimes it's needed to delete object properties. 
@@ -89,17 +112,17 @@ function showValues( obj ) {
   Uncomment the example below to see a for in loop deleting all the properties inside an object.
 */
 
-// var deleteAllThethings = {
-//   one: 1,
-//   two: 2,
-//   three: 3
-// }
+var deleteAllThethings = {
+  one: 1,
+  two: 2,
+  three: 3
+}
 
-// for(var key in deleteAllThethings) {
-//   delete deleteAllThethings[key]
-// }
+for(var key in deleteAllThethings) {
+  delete deleteAllThethings[key]
+}
 
-// console.log(deleteAllThethings)
+console.log(deleteAllThethings);
 
 
 
@@ -111,7 +134,14 @@ function showValues( obj ) {
 */
 
 //Code Here
-
+function removePassword(object) {
+  for (let key in object) {
+    if (key === "password") {
+      delete object[key];
+    }
+  }
+  return object;
+}
 
 
 ////////// PROBLEM 6 //////////
@@ -130,7 +160,11 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+for (var key in deleteTheBigNumbers) {
+  if (deleteTheBigNumbers[key] > 100) {
+    delete deleteTheBigNumbers[key];
+  }
+}
 
 
 ////////// PROBLEM 7 //////////
@@ -143,7 +177,13 @@ var deleteTheBigNumbers = {
 */
 
 //Code Here
-
+function startsWithK(object) {
+  for (var values in object) {
+    if (values.startsWith("k")) {
+      delete object[values];
+    }
+  }
+  return object;}
 
 
 ////////// PROBLEM 8 //////////
@@ -159,4 +199,11 @@ var deleteTheBigNumbers = {
 
 //Code Here
 
-
+function hiddenTreasure(object) {
+  for (var values in object) {
+    if (!object[values].includes("treasure")) {
+      delete object[values];
+    }
+  }
+  return object;
+}
